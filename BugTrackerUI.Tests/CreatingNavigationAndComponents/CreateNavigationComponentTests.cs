@@ -1,9 +1,6 @@
 ﻿using BugTrackerUI.Tests;
-using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
+using FluentAssertions;
 using System.IO;
-using System.Text;
 using Xunit;
 
 namespace M2_BugTrackerUI.Tests.CreatingNavigationAndComponents
@@ -17,7 +14,8 @@ namespace M2_BugTrackerUI.Tests.CreatingNavigationAndComponents
                 + Path.DirectorySeparatorChar + "Shared"
                 + Path.DirectorySeparatorChar + "LeftNav.razor";
 
-            Assert.True(File.Exists(filePath), "`LeftNav.razor` should exist in the Shared folder.");
+            //Assert.True(File.Exists(filePath), "`LeftNav.razor` should exist in the Shared folder.");
+            File.Exists(filePath).Should().BeTrue("`LeftNav.razor` should exist in the Shared folder.");
         }
     }
 }
